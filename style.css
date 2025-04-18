@@ -246,7 +246,7 @@
     transition: transform 0.3s ease;
   }
   
-  .dark-mode .post {
+  .dark-mode {
     background: #2a2a2a;
   }
   
