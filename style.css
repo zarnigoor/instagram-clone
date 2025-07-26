@@ -1,3 +1,17 @@
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #1a1a1a;
+  --text-light: #333333;
+  --text-dark: #ffffff;
+  --accent: #a259ff;
+  --accent-hover: #8a47ff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(255, 255, 255, 0.1);
+  --like-color: #e63946;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -333,5 +347,452 @@
     width: 26px;
     height: 26px;
     fill: white;
+  }
+
+  /* Like Button Styling */
+  .like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    transition: var(--transition);
+    border-radius: 50%;
+  }
+
+  .like-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: var(--transition);
+    color: #666;
+  }
+
+  .like-btn:hover {
+    background: rgba(230, 57, 70, 0.1);
+    transform: scale(1.1);
+  }
+
+  .like-btn.liked svg {
+    color: var(--like-color);
+    fill: var(--like-color);
+  }
+
+  /* Theme Toggle Improvements */
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+  }
+
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  /* Enhanced Post Actions */
+  .post-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background: #fafafa;
+  }
+
+  .dark-mode .post-actions {
+    background: #2a2a2a;
+  }
+
+  /* Responsive Design Improvements */
+  @media (max-width: 768px) {
+    .main {
+      padding: 20px 10px;
+      margin-bottom: 80px; /* Account for mobile footer */
+    }
+
+    .profile {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+    }
+
+    .profile-details {
+      align-items: center;
+      text-align: center;
+    }
+
+    .stats {
+      gap: 1.5rem;
+    }
+
+    .highlights {
+      margin-left: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .highlights::-webkit-scrollbar {
+      display: none;
+    }
+
+    .posts {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem 2rem;
+    }
+
+    header {
+      padding: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main {
+      padding: 15px 5px;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+    }
+
+    .username h1 {
+      font-size: 1.2rem;
+    }
+
+    .stats {
+      gap: 1rem;
+    }
+
+    .stats button {
+      font-size: 0.9rem;
+    }
+
+    .actions button {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .highlight-img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .new-highlight .highlight-label {
+      width: 60px;
+      height: 60px;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Enhanced Animations */
+  .post {
+    transition: var(--transition);
+  }
+
+  .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow);
+  }
+
+  .dark-mode .post:hover {
+    box-shadow: 0 8px 25px var(--shadow-dark);
+  }
+
+  .profile-pic, .highlight-img {
+    transition: var(--transition);
+  }
+
+  .highlight:hover .highlight-img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(162, 89, 255, 0.6);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Loading animation for splash screen */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  #splash-screen img, #splash-screen h1 {
+    animation: fadeIn 1.5s ease-out;
+  }
+
+  /* Floating heart animation */
+  @keyframes floatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-20px) scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.8);
+    }
+  }
+
+  /* Dark mode improvements */
+  .dark-mode {
+    --shadow: rgba(255, 255, 255, 0.05);
+  }
+
+  .dark-mode .post {
+    background: #2a2a2a;
+    box-shadow: 0 4px 10px var(--shadow);
+  }
+
+  .dark-mode .like-btn svg {
+    color: #ccc;
+  }
+
+  .dark-mode .highlight-label {
+    color: #fff;
+  }
+
+  /* Pulse animation for theme toggle */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .theme-toggle:active {
+    animation: pulse 0.3s ease;
+  }
+
+  /* Header improvements */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #8a2be2, #d291ff);
+    color: white;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: relative;
+  }
+
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+  }
+
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  /* Side Menu Styles */
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 350px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .dark-mode .side-menu {
+    background: #1a1a1a;
+    box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .side-menu.active {
+    left: 0;
+  }
+
+  .menu-content {
+    padding: 1rem 0;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1rem;
+  }
+
+  .dark-mode .menu-header {
+    border-bottom: 1px solid #333;
+  }
+
+  .menu-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+  }
+
+  .dark-mode .menu-header h3 {
+    color: var(--text-dark);
+  }
+
+  .close-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+  }
+
+  .dark-mode .close-menu {
+    color: var(--text-dark);
+  }
+
+  .close-menu:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark-mode .close-menu:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-items {
+    padding: 0 0.5rem;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text-light);
+    border-radius: 8px;
+    margin: 0.25rem 0;
+    transition: var(--transition);
+  }
+
+  .dark-mode .menu-item {
+    color: var(--text-dark);
+  }
+
+  .menu-item:hover {
+    background: rgba(162, 89, 255, 0.1);
+    transform: translateX(5px);
+  }
+
+  .menu-item svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .menu-item span {
+    font-weight: 500;
+  }
+
+  .menu-divider {
+    height: 1px;
+    background: #eee;
+    margin: 1rem 1.5rem;
+  }
+
+  .dark-mode .menu-divider {
+    background: #333;
+  }
+
+  .login-section {
+    padding: 0.5rem 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .login-section p {
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: 400;
+    background: rgba(162, 89, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .dark-mode .login-section p {
+    background: rgba(162, 89, 255, 0.1);
+    color: #ccc;
+  }
+
+  .menu-bottom {
+    padding: 0 0.5rem;
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .dark-mode .menu-bottom {
+    border-top: 1px solid #333;
+  }
+
+  /* Menu overlay */
+  .side-menu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 350px;
+    width: calc(100vw - 350px);
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  /* Mobile menu adjustments */
+  @media (max-width: 768px) {
+    .side-menu {
+      width: 280px;
+      left: -280px;
+    }
+
+    .side-menu.active::before {
+      left: 280px;
+      width: calc(100vw - 280px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .side-menu {
+      width: 250px;
+      left: -250px;
+    }
+
+    .side-menu.active::before {
+      left: 250px;
+      width: calc(100vw - 250px);
+    }
+
+    .menu-item span {
+      font-size: 0.9rem;
+    }
   }
   
